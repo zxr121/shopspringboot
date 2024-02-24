@@ -1,0 +1,24 @@
+server:
+  port: 9902
+  compression:
+    enabled: true # 是否开启压缩
+    mime-types: text/html,text/xml,text/plain,application/xml,application/json
+
+spring:
+  application:
+    name: shop-server
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        namespace: dev
+        group : "dev_zxr"
+      config:
+        enabled: true
+        server-addr: localhost:8848
+        namespace: dev
+        group: "dev_zxr"
+        refresh: true
+        file-extension: yml

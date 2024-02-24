@@ -1,0 +1,43 @@
+#配置数据源的属性
+spring:
+  redis:
+    host: localhost
+    port: 6379
+    password: 123456
+    database: 1
+    timeout: 3000
+    #测试环境配置
+    #cluster:
+    #  nodes: 203.3.233.74:7000,203.3.233.74:7001,203.3.233.74:7002
+    #password: Czbk@2021
+    jedis:
+      pool:
+        max-idle: 500 # 最大空闲连接数
+        min-idle: 50 # 最小空闲连接数
+        max-wait: -1 # 等待可用连接的最大时间，负数为不限制
+        max-active: -1 # 最大活跃连接数，负数为不限制
+  datasource:
+    url: jdbc:oracle:thin:@//127.0.0.1/ORCL
+    username: shop
+    password: 123456
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+
+#配置mybatis-plus
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*.xml,classpath*:mapper/**/*.xml,classpath*:mapper/**/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+    banner: true
+  configuration:
+    map-underscore-to-camel-case: true
+    jdbc-type-for-null: 'null'
+
+#Knife4j配置
+knife4j:
+  enable: true
+  production: false
+  setting:
+    enableSwaggerModels: false
+    enableDynamicParameter: true
+    enableFooter: false
